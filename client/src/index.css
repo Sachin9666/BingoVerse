@@ -1,0 +1,209 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  font-family: 'Space Grotesk', 'Plus Jakarta Sans', 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+@font-face {
+  font-family: 'Space Grotesk';
+  src: local('Space Grotesk'), url('https://fonts.gstatic.com/s/spacegrotesk/v16/V8mDoQDjQSkFtoL2UkkVQppONiY.woff2') format('woff2');
+  font-display: swap;
+}
+
+html, body, #root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button, input {
+  font: inherit;
+}
+
+input:focus, button:focus {
+  outline: none;
+}
+
+.animate-spin-slow {
+  animation: spin 18s linear infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulseSlow 8s ease-in-out infinite;
+}
+
+.animate-pulse-slower {
+  animation: pulseSlow 12s ease-in-out infinite;
+}
+
+@keyframes pulseSlow {
+  0%, 100% { opacity: 0.45; transform: scale(0.98); }
+  50% { opacity: 0.9; transform: scale(1.05); }
+}
+
+.theme-dark {
+  background:
+    radial-gradient(circle at 20% 30%, rgba(34, 211, 238, 0.18), transparent 28%),
+    radial-gradient(circle at 80% 20%, rgba(168, 85, 247, 0.16), transparent 26%),
+    linear-gradient(145deg, #030712 0%, #0a0f1f 55%, #0b1022 100%);
+  background-attachment: fixed;
+  color: #e2e8f0;
+}
+
+.theme-dark::before,
+.theme-light::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.theme-dark::before {
+  background: radial-gradient(circle at 20% 10%, rgba(56, 189, 248, 0.12), transparent 18%), radial-gradient(circle at 85% 30%, rgba(168, 85, 247, 0.14), transparent 16%);
+}
+
+.theme-light {
+  color-scheme: light;
+  background:
+    radial-gradient(circle at 18% 18%, rgba(34, 211, 238, 0.14), transparent 26%),
+    radial-gradient(circle at 82% 22%, rgba(168, 85, 247, 0.12), transparent 24%),
+    linear-gradient(135deg, #eef7ff 0%, #f2f0ff 40%, #ffffff 100%);
+  background-attachment: fixed;
+  color: #0f172a;
+}
+
+.theme-light::before {
+  background: radial-gradient(circle at 18% 15%, rgba(14, 165, 233, 0.18), transparent 22%), radial-gradient(circle at 84% 18%, rgba(236, 72, 153, 0.16), transparent 22%);
+}
+
+/* Light palette overrides for dark utility classes */
+.theme-light [class*="bg-slate-9"],
+.theme-light [class*="bg-slate-8"],
+.theme-light .bg-white\\/5,
+.theme-light .bg-white\\/10 {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  color: #0f172a !important;
+  border-color: rgba(15, 23, 42, 0.1) !important;
+}
+
+/* Stronger overrides for key surfaces */
+.theme-light .bg-slate-950\\/80,
+.theme-light .bg-slate-950\\/75,
+.theme-light .bg-slate-950\\/70,
+.theme-light .bg-slate-950\\/60,
+.theme-light .bg-slate-900\\/80,
+.theme-light .bg-slate-900\\/75,
+.theme-light .bg-slate-900\\/70,
+.theme-light .bg-slate-900\\/60 {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  color: #0f172a !important;
+  border-color: rgba(15, 23, 42, 0.12) !important;
+}
+
+.theme-light .text-white,
+.theme-light .text-slate-200,
+.theme-light .text-slate-300,
+.theme-light .text-slate-400 {
+  color: #0f172a !important;
+}
+
+.theme-light .text-cyan-200,
+.theme-light .text-cyan-100,
+.theme-light .text-fuchsia-200,
+.theme-light .text-fuchsia-300 {
+  color: #0369a1 !important;
+}
+
+.hero-kicker {
+  letter-spacing: 0.35em;
+}
+.theme-light .hero-kicker {
+  color: #0ea5e9 !important;
+}
+.theme-light .hero-heading {
+  color: #0f172a !important;
+}
+
+.theme-light .heading-accent {
+  color: #0ea5e9 !important;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+}
+
+.hero-shell {
+  background-image:
+    radial-gradient(circle at 18% 18%, rgba(34, 211, 238, 0.22), transparent 30%),
+    radial-gradient(circle at 82% 16%, rgba(168, 85, 247, 0.18), transparent 28%),
+    linear-gradient(135deg, rgba(8, 12, 22, 0.9) 0%, rgba(10, 15, 28, 0.85) 45%, rgba(16, 10, 26, 0.72) 100%),
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.03) 0, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 12px),
+    repeating-linear-gradient(0deg, rgba(255,255,255,0.02) 0, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.theme-light .hero-shell {
+  background-image:
+    radial-gradient(circle at 20% 18%, rgba(34, 211, 238, 0.16), transparent 30%),
+    radial-gradient(circle at 80% 20%, rgba(168, 85, 247, 0.14), transparent 28%),
+    linear-gradient(135deg, rgba(239, 246, 255, 0.9) 0%, rgba(245, 240, 255, 0.86) 45%, rgba(255, 247, 252, 0.82) 100%),
+    repeating-linear-gradient(90deg, rgba(15,23,42,0.04) 0, rgba(15,23,42,0.04) 1px, transparent 1px, transparent 12px),
+    repeating-linear-gradient(0deg, rgba(15,23,42,0.03) 0, rgba(15,23,42,0.03) 1px, transparent 1px, transparent 12px);
+  border-color: rgba(15, 23, 42, 0.08);
+}
+
+.theme-light .border-white\\/10,
+.theme-light .border-white\\/5,
+.theme-light [class*="border-slate-9"] {
+  border-color: rgba(15, 23, 42, 0.12) !important;
+}
+
+.theme-light button {
+  color: #0f172a;
+}
+
+/* Board tiles stronger contrast in light mode */
+.theme-light .board-tile {
+  background-color: #e8eef8 !important;
+  color: #0f172a !important;
+  border-color: rgba(15, 23, 42, 0.08) !important;
+}
+
+.theme-light .board-tile.selected {
+  background: linear-gradient(135deg, #22d3ee, #10b981) !important;
+  color: #0f172a !important;
+}
+
+/* Bingo pills */
+.bingo-pill {
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.theme-light .bingo-pill {
+  background-color: #eef2ff !important;
+  color: #0f172a !important;
+  border-color: rgba(15, 23, 42, 0.1) !important;
+}
+
+.theme-light .bingo-pill.active {
+  background: linear-gradient(135deg, #22d3ee 0%, #a855f7 100%) !important;
+  color: #0f172a !important;
+  border-color: rgba(15, 23, 42, 0.12) !important;
+}
+
+/* Generic surface card helper */
+.surface-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(15, 23, 42, 0.12);
+}
+.theme-dark .surface-card {
+  background: rgba(15, 23, 42, 0.75);
+  border-color: rgba(255, 255, 255, 0.08);
+}
