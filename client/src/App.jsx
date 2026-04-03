@@ -128,13 +128,20 @@ function App() {
     }
   };
 
+  const handleBackToLobby = () => {
+    if (socket) {
+      socket.disconnect();
+    }
+    dispatch(resetState());
+  };
+
   let screen = <LandingScreen />;
   if (state.screen === 'result') {
     screen = <ResultScreen onReplay={() => dispatch(resetState())} />;
   } else if (state.screen === 'lobby') {
     screen = <LobbyScreen onCreate={handleCreateRoom} onJoin={handleJoinRoom} />;
   } else if (state.screen === 'game' || state.mode === 'single') {
-    screen = <GameScreen onSelectNumber={handleSelectNumber} onShuffleBoard={() => dispatch(regenerateBoard())} />;
+    screen = <GameScreen onSelectNumber={handleSelectNumber} onShuffleBoard={() => dispatch(regenerateBoard())} onBack={handleBackToLobby} />;
   }
 
   const themeClass = state.darkMode ? 'theme-dark' : 'theme-light';

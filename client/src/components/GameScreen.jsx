@@ -4,7 +4,7 @@ import Board from './Board.jsx';
 import BingoTracker from './BingoTracker.jsx';
 import Notifications from './Notifications.jsx';
 
-export default function GameScreen({ onSelectNumber, onShuffleBoard }) {
+export default function GameScreen({ onSelectNumber, onShuffleBoard, onBack }) {
   const state = useSelector((store) => store.game);
   const isSelfTurn = state.currentTurn === 'self';
 
@@ -58,6 +58,15 @@ export default function GameScreen({ onSelectNumber, onShuffleBoard }) {
                 className="rounded-2xl border border-cyan-400/30 bg-cyan-500/10 px-3 py-2 text-xs font-semibold text-cyan-100 transition hover:bg-cyan-400/20"
               >
                 Reshuffle
+              </button>
+            )}
+            {state.mode === 'multi' && onBack && (
+              <button
+                type="button"
+                onClick={onBack}
+                className="rounded-2xl border border-white/20 bg-white/10 px-3 py-2 text-xs font-semibold text-white transition hover:bg-white/20"
+              >
+                Back
               </button>
             )}
           </div>

@@ -11,7 +11,7 @@ export default function LobbyScreen({ onCreate, onJoin }) {
       <div className="space-y-4">
         <div className="rounded-3xl bg-slate-950/60 p-5 shadow-inner shadow-cyan-500/5">
           <div className="flex items-center justify-between">
-            <p className="text-sm uppercase tracking-[0.24em] text-cyan-200/70">Create a private match</p>
+            <p className="hero-kicker text-sm uppercase tracking-[0.24em] text-cyan-200/70">Create a private match</p>
             <span className="rounded-full bg-cyan-500/15 px-3 py-1 text-[11px] font-semibold text-cyan-100">Host</span>
           </div>
           <button type="button" onClick={onCreate} className="mt-4 w-full rounded-3xl bg-gradient-to-r from-cyan-400 to-emerald-300 px-5 py-4 text-lg font-semibold text-slate-950 transition hover:translate-y-[1px] hover:shadow-[0_12px_30px_rgba(16,185,129,0.35)]">
@@ -19,7 +19,7 @@ export default function LobbyScreen({ onCreate, onJoin }) {
           </button>
           {state.roomId && (
             <div className="mt-5 rounded-3xl border border-cyan-300/20 bg-slate-900/60 p-4 text-center">
-              <p className="text-xs uppercase tracking-[0.3em] text-cyan-200/80">Join ID</p>
+              <p className="hero-kicker text-xs uppercase tracking-[0.3em] text-cyan-200/80">Join ID</p>
               <p className="mt-3 text-3xl font-semibold tracking-[0.3em] text-white">{state.roomId}</p>
               <div className="mt-4 flex items-center justify-center gap-3">
                 <button
@@ -43,8 +43,8 @@ export default function LobbyScreen({ onCreate, onJoin }) {
 
         <div className="rounded-3xl bg-slate-950/60 p-5 shadow-inner shadow-fuchsia-500/5">
           <div className="flex items-center justify-between">
-            <p className="text-sm uppercase tracking-[0.24em] text-fuchsia-200/70">Join a match</p>
-            <span className="rounded-full bg-fuchsia-500/15 px-3 py-1 text-[11px] font-semibold text-fuchsia-100">Guest</span>
+            <p className="hero-kicker text-sm uppercase tracking-[0.24em] text-fuchsia-200/70">Join a match</p>
+            <span className="hero-kicker rounded-full bg-fuchsia-500/15 px-3 py-1 text-[11px] font-semibold text-fuchsia-100">Guest</span>
           </div>
           <div className="mt-4 flex flex-col gap-4 sm:flex-row">
             <input
