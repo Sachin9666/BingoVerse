@@ -154,8 +154,7 @@ function App() {
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="mx-auto max-w-5xl">
             <div className="mb-6 flex flex-col gap-4 rounded-3xl border border-white/5 bg-white/5 p-4 shadow-[0_10px_60px_rgba(0,0,0,0.35)] backdrop-blur-2xl sm:flex-row sm:items-center sm:justify-between">
             <div>
-              <p className="hero-kicker text-[11px] uppercase tracking-[0.35em] text-cyan-200/70">BingoVerse</p>
-              <h1 className="hero-heading mt-2 text-2xl font-semibold text-white drop-shadow-lg sm:text-3xl">Private-board bingo with AI and live rooms</h1>
+              <h1 className="hero-kicker text-[11px] tracking-[0.3em] drop-shadow-lg sm:text-3xl">BingoVerse</h1>
             </div>
               <div className="flex items-center gap-3">
                 {state.mode === 'single' && (
@@ -178,6 +177,9 @@ function App() {
             </div>
             {screen}
           </motion.div>
+        </div>
+        <div className="developer-badge">
+          <span className="developer-text">Developed by Sachin</span>
         </div>
       </div>
     </div>

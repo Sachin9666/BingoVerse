@@ -35,14 +35,14 @@ export default function LandingScreen() {
               onClick={() => dispatch(setMode('single'))}
               className="w-full rounded-3xl bg-gradient-to-r from-cyan-400 via-emerald-400 to-cyan-500 px-6 py-4 text-lg font-semibold text-slate-950 shadow-[0_18px_50px_rgba(34,211,238,0.35)] transition hover:translate-y-[1px]"
             >
-              Solo vs AI
+              Single Player
             </button>
             <button
               type="button"
               onClick={() => dispatch(setMode('multi'))}
-              className="w-full rounded-3xl border border-fuchsia-300/60 bg-slate-900/70 px-6 py-4 text-lg font-semibold text-white transition hover:border-fuchsia-200/80 hover:bg-slate-800/80"
+              className="w-full rounded-3xl bg-gradient-to-r from-cyan-400 via-emerald-400 to-cyan-500 px-6 py-4 text-lg font-semibold text-slate-950 shadow-[0_18px_50px_rgba(34,211,238,0.35)] transition hover:translate-y-[1px]"
             >
-              Two Player Live
+              Two Player
             </button>
           </div>
 

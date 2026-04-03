@@ -1,4 +1,4 @@
-@tailwind base;
+﻿@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
@@ -37,6 +37,10 @@ input:focus, button:focus {
   animation: spin 18s linear infinite;
 }
 
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
 .animate-pulse-slow {
   animation: pulseSlow 8s ease-in-out infinite;
 }
@@ -48,6 +52,10 @@ input:focus, button:focus {
 @keyframes pulseSlow {
   0%, 100% { opacity: 0.45; transform: scale(0.98); }
   50% { opacity: 0.9; transform: scale(1.05); }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
 }
 
 .theme-dark {
@@ -89,22 +97,22 @@ input:focus, button:focus {
 /* Light palette overrides for dark utility classes */
 .theme-light [class*="bg-slate-9"],
 .theme-light [class*="bg-slate-8"],
-.theme-light .bg-white\\/5,
-.theme-light .bg-white\\/10 {
+.theme-light .bg-white\/5,
+.theme-light .bg-white\/10 {
   background-color: rgba(255, 255, 255, 0.9) !important;
   color: #0f172a !important;
   border-color: rgba(15, 23, 42, 0.1) !important;
 }
 
 /* Stronger overrides for key surfaces */
-.theme-light .bg-slate-950\\/80,
-.theme-light .bg-slate-950\\/75,
-.theme-light .bg-slate-950\\/70,
-.theme-light .bg-slate-950\\/60,
-.theme-light .bg-slate-900\\/80,
-.theme-light .bg-slate-900\\/75,
-.theme-light .bg-slate-900\\/70,
-.theme-light .bg-slate-900\\/60 {
+.theme-light .bg-slate-950\/80,
+.theme-light .bg-slate-950\/75,
+.theme-light .bg-slate-950\/70,
+.theme-light .bg-slate-950\/60,
+.theme-light .bg-slate-900\/80,
+.theme-light .bg-slate-900\/75,
+.theme-light .bg-slate-900\/70,
+.theme-light .bg-slate-900\/60 {
   background-color: rgba(255, 255, 255, 0.95) !important;
   color: #0f172a !important;
   border-color: rgba(15, 23, 42, 0.12) !important;
@@ -140,6 +148,85 @@ input:focus, button:focus {
   text-transform: uppercase;
 }
 
+/* Light-mode readability inside hero shell */
+.theme-light .hero-shell {
+  color: #0f172a;
+}
+.theme-light .hero-shell .text-slate-100,
+.theme-light .hero-shell .text-slate-200,
+.theme-light .hero-shell .text-slate-200\/80,
+.theme-light .hero-shell .text-slate-300,
+.theme-light .hero-shell .text-slate-400 {
+  color: #0f172a !important;
+  opacity: 0.92;
+}
+.theme-light .hero-shell .text-emerald-200 {
+  color: #047857 !important;
+}
+.theme-light .hero-shell .text-cyan-200,
+.theme-light .hero-shell .text-cyan-100 {
+  color: #0369a1 !important;
+}
+.theme-light .hero-shell .bg-white\/5 {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  border-color: rgba(15, 23, 42, 0.12) !important;
+  color: #0f172a !important;
+}
+.theme-light .hero-shell .border-white\/10 {
+  border-color: rgba(15, 23, 42, 0.12) !important;
+}
+.theme-light .hero-heading {
+  color: #0f172a !important;
+}
+.theme-light .hero-shell .text-xs {
+  color: #1f2937 !important;
+}
+
+/* Developer badge */
+.developer-badge {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 50;
+  padding: 10px 16px;
+  border-radius: 9999px;
+  background: linear-gradient(120deg, rgba(34,211,238,0.16), rgba(168,85,247,0.2));
+  border: 1px solid rgba(255,255,255,0.18);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25), 0 0 30px rgba(34,211,238,0.25);
+  cursor: default;
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+.developer-badge:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 12px 35px rgba(0,0,0,0.3), 0 0 35px rgba(168,85,247,0.35);
+  background: linear-gradient(120deg, rgba(34,211,238,0.28), rgba(168,85,247,0.32));
+}
+.developer-text {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: linear-gradient(120deg, #22d3ee, #a855f7, #22d3ee);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: hueShift 6s linear infinite;
+}
+@keyframes hueShift {
+  0% { filter: hue-rotate(0deg); }
+  50% { filter: hue-rotate(40deg); }
+  100% { filter: hue-rotate(0deg); }
+}
+
+@media (max-width: 640px) {
+  .developer-badge {
+    position: static;
+    display: inline-flex;
+    margin: 16px 16px 0 0;
+    float: right;
+  }
+}
+
 .hero-shell {
   background-image:
     radial-gradient(circle at 18% 18%, rgba(34, 211, 238, 0.22), transparent 30%),
@@ -159,8 +246,8 @@ input:focus, button:focus {
   border-color: rgba(15, 23, 42, 0.08);
 }
 
-.theme-light .border-white\\/10,
-.theme-light .border-white\\/5,
+.theme-light .border-white\/10,
+.theme-light .border-white\/5,
 .theme-light [class*="border-slate-9"] {
   border-color: rgba(15, 23, 42, 0.12) !important;
 }
@@ -207,3 +294,8 @@ input:focus, button:focus {
   background: rgba(15, 23, 42, 0.75);
   border-color: rgba(255, 255, 255, 0.08);
 }
+.page-shell {
+  min-height: 100vh;
+  padding-bottom: 100px;
+}
+
